@@ -13,9 +13,9 @@ export class NegociacaoController {
     private mensagemView = new MensagemView('#mensagemView');
 
     constructor() {
-        this.inputData = document.querySelector("#data");
-        this.inputQuantidade = document.querySelector("#quantidade");
-        this.inputValor = document.querySelector("#valor");
+        this.inputData = <HTMLInputElement>document.querySelector("#data");
+        this.inputQuantidade = document.querySelector("#quantidade") as HTMLInputElement;
+        this.inputValor = document.querySelector("#valor") as HTMLInputElement;
         this.negociacoesView.update(this.negociacoes);
     }
 
@@ -25,7 +25,7 @@ export class NegociacaoController {
             this.inputQuantidade.value,
             this.inputValor.value
         );
-        if(this.eDiaUtil(negociacao.data)) {
+        if(!this.eDiaUtil(negociacao.data)) {
             this.mensagemView
                 .update("Apenas negociações em dias úteis são aceitas!");
             return;
