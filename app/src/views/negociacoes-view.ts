@@ -1,3 +1,4 @@
+import { escapar } from '../decorators/escapar.js';
 import { Negociacoes } from '../models/negociacoes.js';
 import { View } from './view.js';
 
